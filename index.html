@@ -17,7 +17,7 @@
   </head>
   <body>
 
-    <h1 class="contenitore" id="price"></h1>
+    <h1 class="contenitore" id="priceTot"></h1>
 
     <script>
 
@@ -26,21 +26,26 @@
       var kmCost = kmUser * 0.21;
       var discount18 = kmCost / 100 * 20;
       var discount65 = kmCost / 100 * 40;
+      var priceTot = document.getElementById('priceTot');
+      var message = "Per gli minorenni regagliamo un sconto di 20%, il prezzo del tuo viaggio sara: €";
 
       if (ageUser < 18) {
         var price = kmCost - discount18;
-        document.getElementById('price').innerHTML = ("Per gli minorenni regagliamo un sconto di 20%, il prezzo del tuo viaggio sara: " + price + ' euro');
+        message;
         console.log(kmCost, discount18, price);
       }
       else if ( ageUser > 65) {
         var price = kmCost - discount65;
-        document.getElementById('price').innerHTML = ("Per gli over-65 regagliamo un sconto di 40%, iL prezzo del tuo viaggio sara: " + price + ' euro');
+        message = ("Per gli over-65 regagliamo un sconto di 40%, il prezzo del tuo viaggio sara: €");
         console.log(kmCost, discount65, price);
       }
       else {
-        document.getElementById('price').innerHTML = ("IL prezzo del tuo viaggio sara: " + kmCost + ' euro');
-        console.log(kmCost);
+        var price = kmCost;
+        message = ("Il prezzo del tuo viaggio sara: €");
+        console.log(kmCost, price);
       }
+
+      priceTot.innerHTML = message + price;
 
     </script>
 
