@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prezzo del biglietto</title>
+    <style media="screen">
+      body{
+        background-color: rgb(209, 136, 100);
+      }
+      .contenitore{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 class="contenitore" id="price"></h1>
+
+
+    <script>
+
+      var kmUser = prompt("Quanti chilometri vuoi percorrere?: ");
+      var ageUser = prompt("Quanti anni hai?: ");
+      var kmCost = kmUser * 0.21;
+      var discount18 = kmCost / 100 * 20;
+      var discount65 = kmCost / 100 * 40;
+
+      if (ageUser < 18) {
+        var price = kmCost - discount18;
+        document.getElementById('price').innerHTML = ("Per gli minorenni regagliamo un sconto di 20%, il prezzo del tuo viaggio sara: " + price + ' euro');
+        console.log(kmCost, discount18, price);
+      }
+      else if ( ageUser > 65) {
+        var price = kmCost - discount65;
+        document.getElementById('price').innerHTML = ("Per gli over-65 regagliamo un sconto di 40%, iL prezzo del tuo viaggio sara: " + price + ' euro');
+        console.log(kmCost, discount65, price);
+      }
+      else {
+        document.getElementById('price').innerHTML = ("IL prezzo del tuo viaggio sara: " + kmCost + ' euro');
+        console.log(kmCost, price);
+      }
+
+    </script>
+
+  </body>
+</html>
